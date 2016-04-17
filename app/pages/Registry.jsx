@@ -1,6 +1,7 @@
 import React from "React";
+import Item from "../Item";
 
-export default class Regsistry extends React.Component {
+export default class Registry extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -8,12 +9,9 @@ export default class Regsistry extends React.Component {
     render() {
         return (
             <div>
+                <p>Hello {this.props.user}</p>
                 <ul>
-                    <li>Hello</li>
-                    <li>Hello</li>
-                    <li>Hello</li>
-                    <li>Hello</li>
-                    <li>Hello</li>
+                    { this.props.items.map( item => <li><Item name={item.name} /></li> ) }
                 </ul>
             </div>
         );

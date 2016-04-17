@@ -7,48 +7,57 @@ import clone from "./clone";
 
 import classNames from "classnames";
 
-var base = Rebase.createClass("resplendent-torch-2458.firebaseio.com");
-
 import Password from "./pages/Password";
 import Registry from "./pages/Registry";
 
 const PASSWORD = "PASSWORD";
 const APP = "APP";
 
+import Firebase from "firebase";
+
+var base = new Firebase("https://rickyandrobyn.firebaseio.com");
+var items = base.child("items");
+var password = base.child("password");
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            view: PASSWORD
+            view: PASSWORD,
+            user: null,
+            password: null,
+            items: []
         };
     }
 
     componentDidMount() {
 
-        // base.syncState(`trips/${this.state.journeyId}/journey`, {
-        //     context: this,
-        //     state: 'journey'
-        // });
-        //
-        // base.syncState(`trips/${this.state.journeyId}/order`, {
-        //     context: this,
-        //     state: 'order',
-        //     asArray: true
-        // });
+        items.on('value', data => {
+            this.setState({
+                items: data.val()
+            });
+        });
+
+        password.on('value', data => {
+            this.setState({
+                password: data.val()
+            });
+        });
 
     }
 
-    onPasswordSuccess(e) {
+    onPasswordSuccess(email) {
         this.setState({
-            view: APP
+            view: APP,
+            user: email
         })
     }
 
     render() {
 
         var views = {
-            [PASSWORD]: <Password onSuccess={this.onPasswordSuccess.bind(this)} />,
-            [APP]: <Registry />
+            [PASSWORD]: <Password password={this.state.password} onSuccess={this.onPasswordSuccess.bind(this)} />,
+            [APP]: <Registry items={Object.values(this.state.items)} user={this.state.user} />
         };
 
         return (
