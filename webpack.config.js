@@ -6,7 +6,7 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         javascript: "./app.js",
-        html: "./index.html",
+        html: ["./index.html", "./app.html"],
     },
 
     output: {
@@ -30,7 +30,7 @@ module.exports = {
                 loaders: ["json-loader"]
             },
             {
-                test: /\.html$/,
+                test: /\.(html|png|jpg)$/,
                 loader: "file?name=[name].[ext]",
             },
         ]

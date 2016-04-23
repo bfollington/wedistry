@@ -10,7 +10,11 @@ try {
     window.global = {};
 }
 
-ReactDOM.render(
-    <App />,
-    document.querySelector("#app")
-);
+var appMount = document.querySelector("#app");
+
+if (appMount) {
+    ReactDOM.render(
+        <App />,
+        appMount
+    );
+}

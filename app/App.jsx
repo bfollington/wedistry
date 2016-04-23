@@ -53,15 +53,29 @@ export default class App extends React.Component {
         })
     }
 
+    onClaimItem(id, user) {
+        console.log("WOWOWOWOWO");
+        var access = items.child(`${id}/claimedBy`);
+        access.set(user);
+    }
+
+    onUnclaimItem(id, user) {
+        var access = items.child(`${id}/claimedBy`);
+        access.set(null);
+    }
+
     render() {
 
         var views = {
             [PASSWORD]: <Password password={this.state.password} onSuccess={this.onPasswordSuccess.bind(this)} />,
-            [APP]: <Registry items={Object.values(this.state.items)} user={this.state.user} />
+            [APP]: <Registry onClaimItem={this.onClaimItem.bind(this)} onUnclaimItem={this.onUnclaimItem.bind(this)}  items={Object.values(this.state.items)} user={this.state.user} />
         };
 
         return (
             <div>
+                <div className="align-center">
+                    <div className="logo"></div>
+                </div>
                 { views[this.state.view] }
             </div>
         );
