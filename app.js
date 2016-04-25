@@ -27863,7 +27863,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html {\n    overflow: hidden;\n    height: 100%;\n}\n\nbody {\n    height: 100%;\n    overflow: auto;\n    padding: 0;\n    margin: 0;\n\n    font-family: sans-serif;\n    font-size: 14px;\n\n    background: url(" + __webpack_require__(462) + ");\n    background-size: cover;\n}\n\n.align-center {\n    text-align: center;\n}\n\n.logo {\n    background: url(" + __webpack_require__(463) + ");\n    width: 282px;\n    height: 157px;\n\n    background-size: 282px 157px;\n\n    display: inline-block;\n}\n\n.fancy-text {\n    font-family: serif;\n    color: white;\n    text-shadow: 0px 0px 2px rgba(0,0,0,0.75);\n    font-style: italic;\n    font-size: 24px;\n}\n\n.box {\n    box-shadow: 0px 0px 28px 2px rgba(0,0,0,0.35);\n    background-color: white;\n    padding: 2em;\n    border-radius: 3px;\n}\n\n.small-note {\n    padding-top: 0.25em;\n    padding-bottom: 0.25em;\n    margin-top: 0.5em;\n    padding-left: 0.5em;\n    margin-left: 0.75em;\n    color: #555;\n    font-size: 0.8em;\n}\n\n.margin-top {\n    margin-top: 2em;\n}\n\n.margin-bottom {\n    margin-bottom: 2em;\n}\n\n.item-image {\n    max-width: 100%;\n}\n\n.claim-button {\n    float: right;\n}\n", ""]);
+	exports.push([module.id, "html {\n    overflow: hidden;\n    height: 100%;\n}\n\nbody {\n    height: 100%;\n    overflow: auto;\n    padding: 0;\n    margin: 0;\n\n    font-family: sans-serif;\n    font-size: 14px;\n\n    background: url(" + __webpack_require__(462) + ");\n    background-size: cover;\n}\n\n.align-center {\n    text-align: center;\n}\n\n.logo {\n    background: url(" + __webpack_require__(463) + ");\n    width: 282px;\n    height: 157px;\n\n    background-size: 282px 157px;\n\n    display: inline-block;\n}\n\n.fancy-text {\n    font-family: serif;\n    color: white;\n    text-shadow: 0px 0px 2px rgba(0,0,0,0.75);\n    font-style: italic;\n    font-size: 24px;\n}\n\n.box {\n    box-shadow: 0px 0px 28px 2px rgba(0,0,0,0.35);\n    background-color: white;\n    padding: 2em;\n    border-radius: 3px;\n}\n\n.small-note {\n    padding-top: 0.25em;\n    padding-bottom: 0.25em;\n    margin-top: 0.5em;\n    padding-left: 0.5em;\n    margin-left: 0.75em;\n    color: #555;\n    font-size: 0.8em;\n}\n\n.margin-top {\n    margin-top: 2em;\n}\n\n.margin-bottom {\n    margin-bottom: 2em;\n}\n\n.item-image {\n    max-width: 100%;\n}\n\n.claim-button {\n    float: right;\n}\n\n.justify-text {\n    text-align: justify;\n    -moz-text-align-last: center;\n         text-align-last: center;\n}\n", ""]);
 	
 	// exports
 
@@ -41769,7 +41769,7 @@
 	    _createClass(Registry, [{
 	        key: "onClaim",
 	        value: function onClaim(id) {
-	            if (confirm("u sure?")) {
+	            if (confirm("Are you sure you want to claim this gift? This claim is to register your intention to buy this gift. You can’t buy it through our website, but you can call dibs!")) {
 	                console.log("ID", id);
 	                this.props.onClaimItem(id, this.props.user);
 	                console.log("OK", id);
@@ -41778,7 +41778,7 @@
 	    }, {
 	        key: "onUnclaim",
 	        value: function onUnclaim(id) {
-	            if (confirm("u sure?")) {
+	            if (confirm("Are you sure you want to unclaim this gift? Someone else can claim it as soon as you back out.")) {
 	                console.log("ID", id);
 	                this.props.onUnclaimItem(id, this.props.user);
 	            }
@@ -41791,6 +41791,15 @@
 	            return _react2.default.createElement(
 	                "div",
 	                { className: "container" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "fancy-text justify-text" },
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "Thanks for checking out our website! As we start our new life in Bundaberg, we would love your support. If you would like to make a donation, we will have a wedding wishing-well on the Big Day. Otherwise, here’s a little list of gift ideas we wouldn't mind hauling to the Sugar City!"
+	                    )
+	                ),
 	                this.props.items.map(function (item) {
 	                    return _react2.default.createElement(_Item2.default, {
 	                        key: _this2.props.items.indexOf(item),

@@ -7,7 +7,7 @@ export default class Registry extends React.Component {
     }
 
     onClaim(id) {
-        if (confirm("u sure?")) {
+        if (confirm("Are you sure you want to claim this gift? This claim is to register your intention to buy this gift. You can’t buy it through our website, but you can call dibs!")) {
             console.log("ID", id);
             this.props.onClaimItem(id, this.props.user);
             console.log("OK", id);
@@ -15,7 +15,7 @@ export default class Registry extends React.Component {
     }
 
     onUnclaim(id) {
-        if (confirm("u sure?")) {
+        if (confirm("Are you sure you want to unclaim this gift? Someone else can claim it as soon as you back out.")) {
             console.log("ID", id);
             this.props.onUnclaimItem(id, this.props.user);
         }
@@ -24,6 +24,10 @@ export default class Registry extends React.Component {
     render() {
         return (
             <div className="container">
+
+                <div className="fancy-text justify-text">
+                    <p>Thanks for checking out our website! As we start our new life in Bundaberg, we would love your support. If you would like to make a donation, we will have a wedding wishing-well on the Big Day. Otherwise, here’s a little list of gift ideas we wouldn't mind hauling to the Sugar City!</p>
+                </div>
 
                 { this.props.items.map( item => <Item
                     key={this.props.items.indexOf(item)}

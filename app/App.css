@@ -70,3 +70,8 @@ body {
 .claim-button {
     float: right;
 }
+
+.justify-text {
+    text-align: justify;
+    text-align-last: center;
+}
