@@ -43,6 +43,7 @@ export default class Registry extends React.Component {
                     onUnclaim={this.onUnclaim.bind(this, this.props.items.indexOf(item))}
                 /> ) }
 
+                <p>&nbsp;</p>
                 <p className="align-center">
                     <a className="btn btn-primary" href="http://paypal.me/rickyandrobyn">Donate Online</a>
                 </p>

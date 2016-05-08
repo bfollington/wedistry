@@ -41817,6 +41817,11 @@
 	                }),
 	                _react2.default.createElement(
 	                    "p",
+	                    null,
+	                    " "
+	                ),
+	                _react2.default.createElement(
+	                    "p",
 	                    { className: "align-center" },
 	                    _react2.default.createElement(
 	                        "a",
