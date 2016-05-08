@@ -41797,7 +41797,7 @@
 	                    _react2.default.createElement(
 	                        "p",
 	                        null,
-	                        "Thanks for checking out our website! As we start our new life in Bundaberg, we would love your support. If you would like to make a donation, we will have a wedding wishing-well on the Big Day. Otherwise, here’s a little list of gift ideas we wouldn't mind hauling to the Sugar City!"
+	                        "Thanks for checking out our website! As we start our new life in Bundaberg, we would love your support. If you would like to make a donation, we will have a wedding wishing-well on the Big Day or you can digitally donate at the bottom of this page. Otherwise, here’s a little list of gift ideas we wouldn't mind hauling to the Sugar City!"
 	                    )
 	                ),
 	                this.props.items.map(function (item) {
@@ -41814,7 +41814,16 @@
 	                        onClaim: _this2.onClaim.bind(_this2, _this2.props.items.indexOf(item)),
 	                        onUnclaim: _this2.onUnclaim.bind(_this2, _this2.props.items.indexOf(item))
 	                    });
-	                })
+	                }),
+	                _react2.default.createElement(
+	                    "p",
+	                    { className: "align-center" },
+	                    _react2.default.createElement(
+	                        "a",
+	                        { className: "btn btn-primary", href: "http://paypal.me/rickyandrobyn" },
+	                        "Donate Online"
+	                    )
+	                )
 	            );
 	        }
 	    }]);
