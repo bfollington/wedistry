@@ -41825,7 +41825,7 @@
 	                    { className: "align-center" },
 	                    _react2.default.createElement(
 	                        "a",
-	                        { className: "btn btn-primary", href: "http://paypal.me/rickyandrobyn" },
+	                        { className: "btn btn-primary", href: "https://www.paypal.me/rickyandrobyn" },
 	                        "Donate Online"
 	                    )
 	                )

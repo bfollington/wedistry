@@ -45,7 +45,7 @@ export default class Registry extends React.Component {
 
                 <p>&nbsp;</p>
                 <p className="align-center">
-                    <a className="btn btn-primary" href="http://paypal.me/rickyandrobyn">Donate Online</a>
+                    <a className="btn btn-primary" href="https://www.paypal.me/rickyandrobyn">Donate Online</a>
                 </p>
 
             </div>
