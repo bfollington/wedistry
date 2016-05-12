@@ -18,6 +18,7 @@ import Firebase from "firebase";
 var base = new Firebase("https://rickyandrobyn.firebaseio.com");
 var items = base.child("items");
 var password = base.child("password");
+var message = base.child("message");
 
 export default class App extends React.Component {
     constructor(props) {
@@ -26,7 +27,8 @@ export default class App extends React.Component {
             view: PASSWORD,
             user: null,
             password: null,
-            items: []
+            items: [],
+            message: null
         };
     }
 
@@ -41,6 +43,13 @@ export default class App extends React.Component {
         password.on('value', data => {
             this.setState({
                 password: data.val()
+            });
+        });
+
+        message.on('value', data => {
+            console.log(data);
+            this.setState({
+                message: data.val()
             });
         });
 
@@ -68,7 +77,7 @@ export default class App extends React.Component {
 
         var views = {
             [PASSWORD]: <Password password={this.state.password} onSuccess={this.onPasswordSuccess.bind(this)} />,
-            [APP]: <Registry onClaimItem={this.onClaimItem.bind(this)} onUnclaimItem={this.onUnclaimItem.bind(this)}  items={Object.values(this.state.items)} user={this.state.user} />
+            [APP]: <Registry message={this.state.message} onClaimItem={this.onClaimItem.bind(this)} onUnclaimItem={this.onUnclaimItem.bind(this)}  items={Object.values(this.state.items)} user={this.state.user} />
         };
 
         return (

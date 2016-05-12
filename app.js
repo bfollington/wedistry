@@ -27745,6 +27745,7 @@
 	var base = new _firebase2.default("https://rickyandrobyn.firebaseio.com");
 	var items = base.child("items");
 	var password = base.child("password");
+	var message = base.child("message");
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -27758,7 +27759,8 @@
 	            view: PASSWORD,
 	            user: null,
 	            password: null,
-	            items: []
+	            items: [],
+	            message: null
 	        };
 	        return _this;
 	    }
@@ -27777,6 +27779,13 @@
 	            password.on('value', function (data) {
 	                _this2.setState({
 	                    password: data.val()
+	                });
+	            });
+	
+	            message.on('value', function (data) {
+	                console.log(data);
+	                _this2.setState({
+	                    message: data.val()
 	                });
 	            });
 	        }
@@ -27806,7 +27815,7 @@
 	        value: function render() {
 	            var _views;
 	
-	            var views = (_views = {}, _defineProperty(_views, PASSWORD, _react2.default.createElement(_Password2.default, { password: this.state.password, onSuccess: this.onPasswordSuccess.bind(this) })), _defineProperty(_views, APP, _react2.default.createElement(_Registry2.default, { onClaimItem: this.onClaimItem.bind(this), onUnclaimItem: this.onUnclaimItem.bind(this), items: Object.values(this.state.items), user: this.state.user })), _views);
+	            var views = (_views = {}, _defineProperty(_views, PASSWORD, _react2.default.createElement(_Password2.default, { password: this.state.password, onSuccess: this.onPasswordSuccess.bind(this) })), _defineProperty(_views, APP, _react2.default.createElement(_Registry2.default, { message: this.state.message, onClaimItem: this.onClaimItem.bind(this), onUnclaimItem: this.onUnclaimItem.bind(this), items: Object.values(this.state.items), user: this.state.user })), _views);
 	
 	            return _react2.default.createElement(
 	                "div",
@@ -41793,11 +41802,20 @@
 	                { className: "container" },
 	                _react2.default.createElement(
 	                    "div",
-	                    { className: "fancy-text justify-text" },
+	                    { className: "row margin-top" },
 	                    _react2.default.createElement(
-	                        "p",
-	                        null,
-	                        "Thanks for checking out our website! As we start our new life in Bundaberg, we would love your support. If you would like to make a donation, we will have a wedding wishing-well on the Big Day or you can digitally donate at the bottom of this page. Otherwise, here’s a little list of gift ideas we wouldn't mind hauling to the Sugar City!"
+	                        "div",
+	                        { className: "col-xs-10 col-xs-offset-1 box" },
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            this.props.message
+	                        ),
+	                        _react2.default.createElement(
+	                            "a",
+	                            { className: "btn btn-primary claim-button", href: "https://www.paypal.me/rickyandrobyn" },
+	                            "Donate Online"
+	                        )
 	                    )
 	                ),
 	                this.props.items.map(function (item) {
@@ -41814,21 +41832,7 @@
 	                        onClaim: _this2.onClaim.bind(_this2, _this2.props.items.indexOf(item)),
 	                        onUnclaim: _this2.onUnclaim.bind(_this2, _this2.props.items.indexOf(item))
 	                    });
-	                }),
-	                _react2.default.createElement(
-	                    "p",
-	                    null,
-	                    " "
-	                ),
-	                _react2.default.createElement(
-	                    "p",
-	                    { className: "align-center" },
-	                    _react2.default.createElement(
-	                        "a",
-	                        { className: "btn btn-primary", href: "https://www.paypal.me/rickyandrobyn" },
-	                        "Donate Online"
-	                    )
-	                )
+	                })
 	            );
 	        }
 	    }]);
